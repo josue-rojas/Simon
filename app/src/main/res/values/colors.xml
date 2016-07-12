@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="redPressed">#FF0032</color>
+    <color name="redFocused">#9C0422</color>
+    <color name="redDefault">#9C0422</color>
+    <color name="bluePressed">#03E8FF</color>
+    <color name="blueFocused">#04529C</color>
+    <color name="blueDefault">#04529C</color>
+    <color name="greenPressed">#00FF0F</color>
+    <color name="greenFocused">#016B18</color>
+    <color name="greenDefault">#016B18</color>
+    <color name="yellowPressed">#EFFF00</color>
+    <color name="yellowFocused">#788002</color>
+    <color name="yellowDefault">#788002</color>
+</resources>
