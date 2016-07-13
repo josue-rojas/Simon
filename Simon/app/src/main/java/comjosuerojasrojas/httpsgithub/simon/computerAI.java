@@ -1,4 +1,4 @@
-package com.morales.edgar.simonsays;
+package comjosuerojasrojas.httpsgithub.simon;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -7,8 +7,8 @@ import java.util.Random;
  * Created by Mor-Men on 7/13/2016.
  */
 public class computerAI {
-    static ArrayList computerValues;
-    int pointer = -1;
+    static ArrayList<Integer> computerValues;
+    int current = 0;
 
     public void addValues(){
         Random random = new Random();
@@ -16,20 +16,22 @@ public class computerAI {
         if(computerValues.size() == 0 || computerValues == null){
             computerValues = new ArrayList();
             computerValues.add(value);
-            pointer = 0;
         }
         else{
             computerValues.add(value);
-            pointer++;
         }
     }
 
     public void reset(){
         computerValues.clear();
-        pointer = -1;
+        current = 0;
     }
 
-    /*public int loopThroughArray(){
+    public int getNext(){
+        if(current > computerValues.size())
+            return computerValues.get(current++);
+        //end
+        return -1;
+    }
 
-    }*/
 }
