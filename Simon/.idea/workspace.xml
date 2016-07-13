@@ -17,9 +17,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3b4abad-b2b4-47f3-b728-88e610bf7267" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/Computer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../edgar/computerAI.java" afterPath="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/computerAI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java" />
     </list>
     <ignored path="Simon.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,8 +55,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.280083">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="e#1147#1595#0" expanded="true" />
                 <element signature="e#1594#1595#0" expanded="true" />
@@ -1744,8 +1743,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/computerAI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2253,7 +2252,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="5" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -2362,8 +2363,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.280083">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="e#1147#1595#0" expanded="true" />
             <element signature="e#1594#1595#0" expanded="true" />
