@@ -1,10 +1,12 @@
 package comjosuerojasrojas.httpsgithub.simon;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             buttonID[i] = (getResources().getIdentifier("button_" + i, "id", getPackageName()));
             ((Button) findViewById(buttonID[i])).setOnTouchListener(listener);
         }
+        ((ImageView) findViewById(R.id.imageView)).setOnTouchListener(listener);
     }
 
 
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onTouch(View v, MotionEvent event) {
             if(event.getAction() == MotionEvent.ACTION_DOWN) {
                 disableButtons(v.getId());
+
                 //return true;
             }
             if(event.getAction() == MotionEvent.ACTION_UP) {
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+
 
     //should be updated for more numbers
     //not used for now
@@ -64,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
             ((Button) findViewById(buttonID[i])).setEnabled(true);
         }
     }
+
+
 
 }
 
