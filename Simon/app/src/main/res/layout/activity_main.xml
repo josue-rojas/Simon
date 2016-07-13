@@ -7,21 +7,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@android:color/black"
     tools:context="comjosuerojasrojas.httpsgithub.codesprint.MainActivity">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:id="@+id/button_0"
+        android:background="@drawable/blue_button"
+        android:onClick="onClickColor"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/blue_button"
-        android:onClick="onClickColor"/>
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:id="@+id/button_1"
         android:layout_alignTop="@+id/button_0"
         android:layout_alignParentRight="true"
@@ -31,20 +32,19 @@
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:id="@+id/button_2"
-        android:layout_below="@+id/button_0"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="56dp"
         android:background="@drawable/green_button"
-        android:onClick="onClickColor" />
+        android:onClick="onClickColor"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:id="@+id/button_3"
         android:layout_alignTop="@+id/button_2"
         android:layout_alignRight="@+id/button_1"
