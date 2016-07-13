@@ -1,19 +1,35 @@
 package com.morales.edgar.simonsays;
 
-import java.util.Queue;
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Mor-Men on 7/13/2016.
  */
-public abstract class computerAI {
-    static Stack stack;
-    static Queue queue;
+public class computerAI {
+    static ArrayList computerValues;
+    int pointer = -1;
 
-    public abstract void putNextColor();
+    public void addValues(){
+        Random random = new Random();
+        int value = random.nextInt(4);
+        if(computerValues.size() == 0 || computerValues == null){
+            computerValues = new ArrayList();
+            computerValues.add(value);
+            pointer = 0;
+        }
+        else{
+            computerValues.add(value);
+            pointer++;
+        }
+    }
 
-    public abstract int getNextColor();
+    public void reset(){
+        computerValues.clear();
+        pointer = -1;
+    }
 
-    public abstract void reset();
+    /*public int loopThroughArray(){
 
+    }*/
 }
