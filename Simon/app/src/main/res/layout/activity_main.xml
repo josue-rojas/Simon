@@ -94,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar"
-        android:max="1000"
+        android:max="1500"
         android:indeterminate="false"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

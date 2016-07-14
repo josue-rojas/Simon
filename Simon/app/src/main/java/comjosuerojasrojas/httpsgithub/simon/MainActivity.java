@@ -13,10 +13,10 @@ import android.widget.SeekBar;
 public class MainActivity extends AppCompatActivity {
 
     //constants
-    private static int numButtons = 4;
+    private static int numButtons = Constants.numButtons;
     private static int[] buttonID = new int[numButtons];
     private final Handler handler = new Handler();
-    private boolean firstTurn = true;
+    // private boolean firstTurn = true;
 
 
     @Override
@@ -95,11 +95,14 @@ public class MainActivity extends AppCompatActivity {
                         */
                 //add to pattern
                 computerAI.addValues();
-                enableButtons();
+
+
+
                 //display the computer turn
                 computerTurn();
-                //the buttons are enabled in the computer turn
 
+                //just in case
+                enableButtons();
             }
 
             return false;
@@ -157,6 +160,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+
+
+    public void multiplayer(){};
 
 
 

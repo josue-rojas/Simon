@@ -12,6 +12,7 @@ import java.util.HashMap;
 public class Constants {
 
     //colors
+    static final int numButtons = 4;
     static String redPress = "#FF0032",
             redDefault = "#9C0422",
             bluePress = "#03E8FF",
@@ -34,7 +35,7 @@ public class Constants {
     static HashMap<Integer,String> idToColor = new HashMap<>();
     static HashMap<Integer,String> idToColorDef = new HashMap<>();
     //delay for the computer ai showing the color. should change this lower to make it harder
-    static int delay = 100;
+    static int delay = 2000;
 
 
 }
