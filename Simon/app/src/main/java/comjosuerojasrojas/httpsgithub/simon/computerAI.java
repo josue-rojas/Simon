@@ -15,6 +15,7 @@ public class computerAI {
     static int end = 0;
 
 
+
     public static void randomN(){
         for(int i = 0; i < 10; i ++){
             addValues();

@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     View.OnTouchListener listener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
+
             if(event.getAction() == MotionEvent.ACTION_DOWN) {
                 disableButtons(v.getId());
 
@@ -55,12 +56,11 @@ public class MainActivity extends AppCompatActivity {
             if(event.getAction() == MotionEvent.ACTION_UP) {
                 //check if right
 
-                //add pattern after
+                //add to pattern
                 computerAI.addValues();
+                //display the computer turn
                 computerTurn();
-
-                //computerAI.current = 0;
-                //return true;
+                //the buttons are enabled in the computer turn
             }
 
             return false;
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < buttonID.length; i++) {
             ((Button) findViewById(buttonID[i])).setEnabled(true);
         }
+        ((ImageView)findViewById(R.id.imageView)).bringToFront();
     }
 
 
