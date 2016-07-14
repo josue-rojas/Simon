@@ -16,16 +16,7 @@ public class computerAI {
 
 
 
-    public static void randomN(){
-        for(int i = 0; i < 10; i ++){
-            addValues();
-        }
-        if(end >7){
-            ArrayList<Integer> clone = new ArrayList<>(computerValues);
-            reset();
-            computerValues = clone;
-        }
-    }
+
     public static void addValues(){
         Random random = new Random();
         int value = random.nextInt(4);
@@ -37,6 +28,7 @@ public class computerAI {
     public static void reset(){
         computerValues.clear();
         current = 0;
+        end = 0;
     }
 
     public static int getNext(){
