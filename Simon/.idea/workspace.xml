@@ -19,9 +19,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3b4abad-b2b4-47f3-b728-88e610bf7267" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/Constants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
     </list>
     <ignored path="Simon.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,14 +75,14 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51417005">
-              <caret line="198" column="91" selection-start-line="198" selection-start-column="91" selection-end-line="198" selection-end-column="91" />
+            <state vertical-scroll-proportion="0.24089068">
+              <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2599#4982#0" expanded="true" />
-                <element signature="e#4981#4982#0" expanded="true" />
-                <element signature="e#5937#6633#0" expanded="true" />
-                <element signature="e#6632#6633#0" expanded="true" />
+                <element signature="e#2599#5006#0" expanded="true" />
+                <element signature="e#5005#5006#0" expanded="true" />
+                <element signature="e#5961#6657#0" expanded="true" />
+                <element signature="e#6656#6657#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2331,10 +2329,10 @@
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2599#4982#0" expanded="true" />
-            <element signature="e#4981#4982#0" expanded="true" />
-            <element signature="e#5937#6633#0" expanded="true" />
-            <element signature="e#6632#6633#0" expanded="true" />
+            <element signature="e#2599#5006#0" expanded="true" />
+            <element signature="e#5005#5006#0" expanded="true" />
+            <element signature="e#5961#6657#0" expanded="true" />
+            <element signature="e#6656#6657#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2371,10 +2369,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2599#4982#0" expanded="true" />
-            <element signature="e#4981#4982#0" expanded="true" />
-            <element signature="e#5937#6633#0" expanded="true" />
-            <element signature="e#6632#6633#0" expanded="true" />
+            <element signature="e#2599#5006#0" expanded="true" />
+            <element signature="e#5005#5006#0" expanded="true" />
+            <element signature="e#5961#6657#0" expanded="true" />
+            <element signature="e#6656#6657#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2451,14 +2449,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/comjosuerojasrojas/httpsgithub/simon/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51417005">
-          <caret line="198" column="91" selection-start-line="198" selection-start-column="91" selection-end-line="198" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.24089068">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2599#4982#0" expanded="true" />
-            <element signature="e#4981#4982#0" expanded="true" />
-            <element signature="e#5937#6633#0" expanded="true" />
-            <element signature="e#6632#6633#0" expanded="true" />
+            <element signature="e#2599#5006#0" expanded="true" />
+            <element signature="e#5005#5006#0" expanded="true" />
+            <element signature="e#5961#6657#0" expanded="true" />
+            <element signature="e#6656#6657#0" expanded="true" />
           </folding>
         </state>
       </provider>

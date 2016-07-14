@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 //return true;
             }
             if(event.getAction() == MotionEvent.ACTION_UP) {
-
+                //check 
 
                 computerAI.addValues();
                 //display the computer turn
