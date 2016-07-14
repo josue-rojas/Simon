@@ -20,13 +20,18 @@ public class computerAI {
         for(int i = 0; i < 10; i ++){
             addValues();
         }
+        if(end >7){
+            ArrayList<Integer> clone = new ArrayList<>(computerValues);
+            reset();
+            computerValues = clone;
+        }
     }
     public static void addValues(){
         Random random = new Random();
         int value = random.nextInt(4);
-        Log.d("inside","add valie" + value);
         computerValues.add(value);
         end++;
+
     }
 
     public static void reset(){
@@ -35,12 +40,9 @@ public class computerAI {
     }
 
     public static int getNext(){
-        Log.d("inside",current+ " curr and size = " + end);
         if(current == end){
-            Log.d("inside",current+ " curr and size = " + end + "return 0");
             return current=0;
         }
-        Log.d("inside",(current+1) +  " return");
         return current++;
     }
 

@@ -7,8 +7,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.os.Handler;
+import android.widget.SeekBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private static int[] buttonID = new int[numButtons];
     private final Handler handler = new Handler();
     private boolean firstTurn = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +35,29 @@ public class MainActivity extends AppCompatActivity {
             Constants.idToColorDef.put(((Button)findViewById(buttonID[i])).getId(),Constants.colorDefault[i]);
 
         }
-        //disableButtons(-1);
-        //((ImageView) findViewById(R.id.imageView)).setOnTouchListener(listener);
-        //computerAI.randomN();
+        //computer turn (always first)
         computerAI.addValues();
         computerTurn();
+
+        //seekbar and it's function (messy for now)
+        ((SeekBar)findViewById(R.id.seekBar)).setProgress(0);
+        ((SeekBar)findViewById(R.id.seekBar)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Constants.delay = 1100 - progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
 
     }
 
@@ -47,20 +66,40 @@ public class MainActivity extends AppCompatActivity {
     View.OnTouchListener listener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
+            Long time = System.currentTimeMillis();
 
             if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                Log.d("inside","disable buttons");
                 disableButtons(v.getId());
 
                 //return true;
             }
             if(event.getAction() == MotionEvent.ACTION_UP) {
-                //check if right
+              //  Button button = (Button)findViewById(v.getId());
+                //fix the button not showing the color. should be cleaned later
+                /*
+                boolean whileT = true;
+                while(System.currentTimeMillis() - time < Constants.delay){
+                    if(whileT){
+                        whileT=false;
+                        Log.d("inside","change color");
+                    }
+                    button.setBackgroundColor(Color.parseColor(
+                            Constants.idToColor.get(new Integer(button.getId()))));
+                }
 
+                button.invalidate();
+                //check if right
+                button.setBackgroundColor(Color.parseColor(
+                        Constants.idToColorDef.get(new Integer(button.getId()))));
+                        */
                 //add to pattern
                 computerAI.addValues();
+                enableButtons();
                 //display the computer turn
                 computerTurn();
                 //the buttons are enabled in the computer turn
+
             }
 
             return false;
@@ -83,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < buttonID.length; i++) {
             ((Button) findViewById(buttonID[i])).setEnabled(true);
         }
-        ((ImageView)findViewById(R.id.imageView)).bringToFront();
+        Log.d("inside","enablebuttons");
     }
 
 
@@ -91,10 +130,9 @@ public class MainActivity extends AppCompatActivity {
     public void computerTurn(){
 
         final Button button = (Button)findViewById(Constants.ID[computerAI.computerValues.get(computerAI.current)]);
-        //change to 'clicked' button
+        //change to 'clicked' button color
         button.setBackgroundColor(Color.parseColor(
                 Constants.idToColor.get(new Integer(button.getId()))));
-        Log.d("inside", computerAI.current + " curr");
         //disable buttons
         disableButtons(-1);
         handler.postDelayed(new Runnable() {
@@ -102,10 +140,10 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 //computerAI.getNext();
 
-                Log.d("inside", "handler run current = "  + computerAI.current);
                 //set default color (for computer)
                     button.setBackgroundColor(Color.parseColor(
                             Constants.idToColorDef.get(new Integer(button.getId()))));
+                Log.d("inside","button change");
                 //run until current gets to last
                 computerAI.getNext();
                 if(computerAI.current != computerAI.end) {
@@ -116,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
                     computerAI.getNext();
                 }
             }},Constants.delay);
+
+
         }
 
 

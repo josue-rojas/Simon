@@ -1,5 +1,7 @@
 package comjosuerojasrojas.httpsgithub.simon;
 
+import android.widget.SeekBar;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -32,6 +34,7 @@ public class Constants {
     static HashMap<Integer,String> idToColor = new HashMap<>();
     static HashMap<Integer,String> idToColorDef = new HashMap<>();
     //delay for the computer ai showing the color. should change this lower to make it harder
-    static int delay = 500;
+    static int delay = 100;
+
 
 }
