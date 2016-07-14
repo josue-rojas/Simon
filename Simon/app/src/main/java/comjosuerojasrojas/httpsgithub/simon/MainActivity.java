@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private static int numButtons = Constants.numButtons;
     private static int[] buttonID = new int[numButtons];
     private final Handler handler = new Handler();
-    private int current = 0;
+     int current = 0;
     private Toast mToastToShow;
-    // private boolean firstTurn = true;
+     private boolean loose = false;
 
 
     @Override
@@ -41,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
             Constants.ID[i] = ((Button) findViewById(buttonID[i])).getId();
             Constants.idToColor.put(((Button)findViewById(buttonID[i])).getId(),Constants.colorPressed[i]);
             Constants.idToColorDef.put(((Button)findViewById(buttonID[i])).getId(),Constants.colorDefault[i]);
-            Constants.idToIndex.put(new Integer(Constants.ID[i]),new Integer(i));
+            Constants.idToIndex.put(((Button) findViewById(buttonID[i])).getId(),new Integer(i));
 
         }
         //((Button)findViewById(R.id.reset)).setOnClickListener(resetGame(this));
         //computer turn (always first)
         ((Button)findViewById(R.id.reset)).setEnabled(false);
+        ((Button)findViewById(R.id.multiplayer)).setEnabled(false);
+
         disableButtons(-1);
         //seekbar and it's function (messy for now)
         ((SeekBar)findViewById(R.id.seekBar)).setProgress(0);
@@ -85,19 +87,60 @@ public class MainActivity extends AppCompatActivity {
             }
             if(event.getAction() == MotionEvent.ACTION_UP) {
                 //check pattern
-                int currIndex = v.getId();
-                int currPatternI = computerAI.computerValues.get(current);
-                //check if the match
 
+
+                int currIndex = Constants.idToIndex.get(v.getId());
+                Log.d("inside","currID " +currIndex);
+                Log.d("inside","computer " + computerAI.computerValues.get(current));
+                int currPatternI = computerAI.computerValues.get(current);
+                Log.d("inside","currPattern " + currPatternI);
+                //check if the match
+                //last one check
+
+                if(currIndex != currPatternI){
+                    //wrong
+                    current = 0;
+                    /*
+                    computerAI.reset();
+                    computerAI.addValues();
+                    computerTurn();
+                    Log.d("inside","wrong");
+                    */
+                    loose = true;
+                    disableButtons(-1);
+                    ((TextView)findViewById(R.id.status)).setText("You Loose Press Start to play again");
+                    ((Button)findViewById(R.id.start)).setEnabled(true);
+                    ((Button)findViewById(R.id.reset)).setEnabled(false);
+
+                }
+
+                else {
+                    //right
+                    Log.d("inside","right");
+                    if(current != computerAI.end-1){
+                        current++;
+                        Log.d("inside","current = " + current);
+                    }
+                    else{
+                        Log.d("inside","right computer turn");
+                        current = 0;
+                        computerAI.addValues();
+                        computerTurn();
+                    }
+                }
+
+
+                /*
                 computerAI.addValues();
                 //display the computer turn
                 computerTurn();
                 enableButtons();
+                */
                 /*
                 //add to pattern
                 int currentButtonIndex = Constants.idToIndex.get(v.getId());
                 Log.d("inside","after create button currentButton" + currentButtonIndex + " endCP " + computerAI.computerValues.get(current));
-                //reache the end last of pattern
+                //reach the end last of pattern
                 if(current == computerAI.end) {
                     Log.d("inside","affter check end");
                     if(currentButtonIndex == computerAI.computerValues.get(current)-1) {
@@ -137,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("inside","after turn");
                 */
             }
+            if(!loose) enableButtons();
 
             return false;
         }
@@ -148,7 +192,6 @@ public class MainActivity extends AppCompatActivity {
 
     //function to diasble
     public void disableButtons(int id) {
-        Log.d("inside","disable");
         for (int i = 0; i < buttonID.length; i++) {
             if (buttonID[i] != id)
                 ((Button) findViewById(buttonID[i])).setEnabled(false);
@@ -159,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < buttonID.length; i++) {
             ((Button) findViewById(buttonID[i])).setEnabled(true);
         }
-        Log.d("inside","enablebuttons");
     }
 
 
@@ -180,7 +222,6 @@ public class MainActivity extends AppCompatActivity {
                 //set default color (for computer)
                     button.setBackgroundColor(Color.parseColor(
                             Constants.idToColorDef.get(new Integer(button.getId()))));
-                Log.d("inside","button change");
                 //run until current gets to last
                 computerAI.getNext();
                 if(computerAI.current != computerAI.end) {
@@ -219,10 +260,17 @@ public class MainActivity extends AppCompatActivity {
         toastCountDown.start();        view.setEnabled(false);
         ((Button)findViewById(R.id.start)).setEnabled(true);
         disableButtons(-1);
+        current = 0;
 
     }
 
+
+    public void resetLost(){
+        computerAI.reset();
+    }
+
     public void startGame(View view){
+        ((TextView)findViewById(R.id.status)).setText("");
         view.setEnabled(false);
         ((Button)findViewById(R.id.reset)).setEnabled(true);
         computerAI.addValues();
