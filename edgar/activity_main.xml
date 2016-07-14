@@ -83,8 +83,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/startButton"
+        android:layout_alignTop="@+id/reset"
+        android:layout_alignBottom="@+id/reset"
+        android:layout_alignRight="@+id/delay"
+        android:layout_alignEnd="@+id/delay"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Reset"
         android:id="@+id/reset"
+        android:layout_alignParentBottom="false"
         android:layout_above="@+id/delay"
         android:layout_centerHorizontal="true"
          />

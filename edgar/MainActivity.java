@@ -1,6 +1,7 @@
 package comjosuerojasrojas.httpsgithub.simon;
 
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private static int[] buttonID = new int[numButtons];
     private final Handler handler = new Handler();
     Button reset;
+    Button start;
+    private Toast mToastToShow;
     // private boolean firstTurn = true;
 
 
@@ -61,15 +64,36 @@ public class MainActivity extends AppCompatActivity {
         });
 
         reset = (Button)findViewById(R.id.reset);
-
         reset.setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
                         computerAI.reset();
-                        Toast.makeText(getApplicationContext(),"Game has been resetted",Toast.LENGTH_LONG).show();
+                        int toastDurationInMilliSeconds = 1000;
+                        mToastToShow = Toast.makeText(getApplicationContext(),"Game has been resetted",Toast.LENGTH_SHORT);
+
+                        CountDownTimer toastCountDown;
+                        toastCountDown = new CountDownTimer(toastDurationInMilliSeconds, 1000 /*Tick duration*/) {
+                            public void onTick(long millisUntilFinished) {
+                                mToastToShow.show();
+                            }
+                            public void onFinish() {
+                                mToastToShow.cancel();
+                            }
+                        };
+                        mToastToShow.show();
+                        toastCountDown.start();
                     }
                 }
         );
+
+
+        start = (Button)findViewById(R.id.startButton);
+        start.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v) {
+                computerAI.addValues();
+                computerTurn();
+            }
+        });
     }
 
 
