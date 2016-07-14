@@ -28,6 +28,9 @@ public class Constants {
                yellow = 3;
     //array that hold the id of buttons
     static int[] ID = new int[4];
+    //hashmap  id to index
+    static HashMap<Integer,Integer> idToIndex = new HashMap<>();
+
     //color arrays
     static String[] colorPressed = {bluePress,redPress,greenPress,yellowPress};
     static String[] colorDefault = {blueDefault,redDefault,greenDefault,yellowDefault};

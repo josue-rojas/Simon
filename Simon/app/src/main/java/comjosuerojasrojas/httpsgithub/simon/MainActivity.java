@@ -1,6 +1,7 @@
 package comjosuerojasrojas.httpsgithub.simon;
 
 import android.graphics.Color;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +9,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.os.Handler;
+import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private static int numButtons = Constants.numButtons;
     private static int[] buttonID = new int[numButtons];
     private final Handler handler = new Handler();
+    private int current = 0;
     // private boolean firstTurn = true;
 
 
@@ -33,12 +38,13 @@ public class MainActivity extends AppCompatActivity {
             Constants.ID[i] = ((Button) findViewById(buttonID[i])).getId();
             Constants.idToColor.put(((Button)findViewById(buttonID[i])).getId(),Constants.colorPressed[i]);
             Constants.idToColorDef.put(((Button)findViewById(buttonID[i])).getId(),Constants.colorDefault[i]);
+            Constants.idToIndex.put(new Integer(Constants.ID[i]),new Integer(i));
 
         }
+        //((Button)findViewById(R.id.reset)).setOnClickListener(resetGame(this));
         //computer turn (always first)
-        computerAI.addValues();
-        computerTurn();
-
+        ((Button)findViewById(R.id.reset)).setEnabled(false);
+        disableButtons(-1);
         //seekbar and it's function (messy for now)
         ((SeekBar)findViewById(R.id.seekBar)).setProgress(0);
         ((SeekBar)findViewById(R.id.seekBar)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -75,34 +81,55 @@ public class MainActivity extends AppCompatActivity {
                 //return true;
             }
             if(event.getAction() == MotionEvent.ACTION_UP) {
-              //  Button button = (Button)findViewById(v.getId());
-                //fix the button not showing the color. should be cleaned later
-                /*
-                boolean whileT = true;
-                while(System.currentTimeMillis() - time < Constants.delay){
-                    if(whileT){
-                        whileT=false;
-                        Log.d("inside","change color");
-                    }
-                    button.setBackgroundColor(Color.parseColor(
-                            Constants.idToColor.get(new Integer(button.getId()))));
-                }
 
-                button.invalidate();
-                //check if right
-                button.setBackgroundColor(Color.parseColor(
-                        Constants.idToColorDef.get(new Integer(button.getId()))));
-                        */
-                //add to pattern
+
                 computerAI.addValues();
-
-
-
                 //display the computer turn
                 computerTurn();
-
-                //just in case
                 enableButtons();
+                /*
+                //add to pattern
+                int currentButtonIndex = Constants.idToIndex.get(v.getId());
+                Log.d("inside","after create button currentButton" + currentButtonIndex + " endCP " + computerAI.computerValues.get(current));
+                //reache the end last of pattern
+                if(current == computerAI.end) {
+                    Log.d("inside","affter check end");
+                    if(currentButtonIndex == computerAI.computerValues.get(current)-1) {
+                        Log.d("inside","after check id");
+                        computerAI.addValues();
+                        //display the computer turn
+                        computerTurn();
+                        current = 0;
+
+                    }
+                    else{
+                        Log.d("inside","");
+                        ((TextView)findViewById(R.id.delay)).setText("Lost");
+                        current = 0;
+
+                    }
+
+
+                }
+                else{
+                    Log.d("inside","else");
+                    //if press right button
+                    if(currentButtonIndex == computerAI.computerValues.get(current)){
+                        Log.d("inside","check buttons");
+                        //update current to next button
+                        current++;
+                        enableButtons();
+                    }
+                    else{
+                        Log.d("inside","else wrong button" +
+                                "");
+
+                        ((TextView)findViewById(R.id.delay)).setText("Lost");
+                        current = 0;
+                    }
+                }
+                Log.d("inside","after turn");
+                */
             }
 
             return false;
@@ -115,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
     //function to diasble
     public void disableButtons(int id) {
+        Log.d("inside","disable");
         for (int i = 0; i < buttonID.length; i++) {
             if (buttonID[i] != id)
                 ((Button) findViewById(buttonID[i])).setEnabled(false);
@@ -165,8 +193,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void multiplayer(){};
 
+    public void resetGame(View view){
+        Log.d("inside","reset press");
+        computerAI.reset();
+        Toast.makeText(getApplicationContext(),"Game has been resetted", Toast.LENGTH_SHORT).show();
+        view.setEnabled(false);
+        ((Button)findViewById(R.id.start)).setEnabled(true);
+        disableButtons(-1);
 
+    }
 
+    public void startGame(View view){
+        view.setEnabled(false);
+        ((Button)findViewById(R.id.reset)).setEnabled(true);
+        computerAI.addValues();
+        computerTurn();
+
+    }
 
     }
 
