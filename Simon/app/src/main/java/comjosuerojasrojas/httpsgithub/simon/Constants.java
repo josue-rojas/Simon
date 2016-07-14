@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
+ * this class is just to hold constants
  * Created by josuerojas on 7/13/16.
  */
 public class Constants {
@@ -22,10 +23,15 @@ public class Constants {
                red = 1,
                green = 2,
                yellow = 3;
+    //array that hold the id of buttons
     static int[] ID = new int[4];
+    //color arrays
     static String[] colorPressed = {bluePress,redPress,greenPress,yellowPress};
     static String[] colorDefault = {blueDefault,redDefault,greenDefault,yellowDefault};
+    //hashmaps with id of buttons and their color
     static HashMap<Integer,String> idToColor = new HashMap<>();
     static HashMap<Integer,String> idToColorDef = new HashMap<>();
+    //delay for the computer ai showing the color. should change this lower to make it harder
+    static int delay = 1000;
 
 }

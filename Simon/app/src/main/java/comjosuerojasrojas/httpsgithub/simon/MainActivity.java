@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     enableButtons();
                     computerAI.getNext();
                 }
-            }},1000);
+            }},Constants.delay);
         }
 
 
