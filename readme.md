@@ -10,7 +10,6 @@ A copy of the game simon says. The computer gives a pattern for the user to matc
 There are 3 Java files called MainActivity, computerAi, and Constants. 
 MainActivity 
 - onCreate creates the UI and populates the some Constants. 
-- 
 
 #####Roles
 
