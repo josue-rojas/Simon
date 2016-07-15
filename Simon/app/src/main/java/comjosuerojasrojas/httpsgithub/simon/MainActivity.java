@@ -19,12 +19,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     //constants
-    private static int numButtons = Constants.numButtons;
-    private static int[] buttonID = new int[numButtons];
+    private static int[] buttonID = new int[Constants.numButtons];
     private final Handler handler = new Handler();
-     int current = 0;
+    int current = 0; //keep track of current for user ([0000current0000])
     private Toast mToastToShow;
-     private boolean loose = false;
+    private boolean loose = false;
 
 
     @Override
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         //get all button id number
         //might throw error if button doesn't exist
-        for (int i = 0; i < numButtons; i++) {
+        for (int i = 0; i < Constants.numButtons; i++) {
             buttonID[i] = (getResources().getIdentifier("button_" + i, "id", getPackageName()));
             ((Button) findViewById(buttonID[i])).setOnTouchListener(listener);
             //populate constants
